@@ -1,3 +1,6 @@
+//Una matriz es una coleccion de datos relacionados (informacion)
+
+//Arrays!
 // var menu = ["Productos", "Ventas", "Contacto"];
 // document.write( menu[0] );
 
@@ -26,8 +29,20 @@ var x, y;
 alert("Estás en un campo minado\n" +
 	  "Elije una posición entre el 0 y el 2 para X y para Y");
 
+
+//Con esto hice que la eleccion de la coordenada y sea aleatoria
+function seleccionMaquina(minimo, maximo)
+{
+	var numero = Math.floor( Math.random() * (maximo - minimo + 1) + minimo );
+	return numero;
+}
+
+var opcionMaquina = seleccionMaquina(0,2);
+
+
 x = prompt("Posición en X? (entre 0 y 2)");
-y = prompt("Posición en Y? (entre 0 y 2)");
+//Aleatoria
+y = opcionMaquina;
 
 
 if(x <= 2 && y <= 2)
