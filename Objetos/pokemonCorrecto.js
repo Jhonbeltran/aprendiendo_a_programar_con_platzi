@@ -26,7 +26,7 @@ function Pokemon (n, v, a, g){
 
 function inicio(){
     alert("Esto es despues del inicio");
-    var pikachu = new Pokemon("Rattata", 100, 55, "Conio!");
+    var pikachu = new Pokemon("Bulbasaur", 100, 55, "Coño, verga, marico!");
     //new convierte a Pokemon en una clase(declaracion de objeto)
     //Si no usamos this no podemos ver las variables desde la declaracion del objeto
     pikachu.vida = pikachu.vida - 34;
