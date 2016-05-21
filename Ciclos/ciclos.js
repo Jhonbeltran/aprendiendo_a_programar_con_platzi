@@ -23,4 +23,28 @@ function inicio(){
 
         numeros ++;
     }
+
+    var texto = document.getElementById("texto");
+    var boton = document.getElementById("boton");
+
+    function calcular(){
+        alert("Gracias por tocarme ( ͡° ͜ʖ ͡°)");
+        /*alert(texto.value);*/
+        /*var numero = texto.value;*/
+        /*alert(numero + "( ͡° ͜ʖ ͡°)");*/
+        var numero = Number(texto.value);
+        /*alert(numero+Math.PI);*/
+        var calculo = 1;
+        var n = 1;
+        /*while(n<=numero){
+            calculo=calculo * n;
+            n++;
+        }*/
+        for(n=1; n<= numero; n++){
+            calculo=calculo * n;
+        }
+        caja.innerHTML = calculo;
+    }
+
+    boton.addEventListener("click", calcular);
 }
