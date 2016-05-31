@@ -86,28 +86,54 @@ function teclado(datos) {
     var codigo = datos.keyCode;
     if(codigo == teclas.UP){
         tifis.y -= tifis.velocidad;
-        if (tifis.y<0|| tifis.y>300 && tifis.x>110 && tifis.y<360 || tifis.y>150 && tifis.x<140 && tifis.y<210 || tifis.y<210 && tifis.x>160 && tifis.x<240) {
+        	//borde del tablero
+        if (tifis.y<0||
+        	//obstaculo de la parte de abajo
+         	tifis.y>300 && tifis.x>110 && tifis.y<350 ||
+         	//Obstaculo del lado izquierdo
+          	tifis.y>150 && tifis.x<140 && tifis.y<210 ||
+          	//Obstaculo de arriba
+           	tifis.y<210 && tifis.x>160 && tifis.x<240)
+        {
             tifis.y += tifis.velocidad;
         };
     }
 
     if(codigo == teclas.DOWN){
         tifis.y += tifis.velocidad;
-         if(tifis.y>450 || tifis.y>300 && tifis.x>110 && tifis.y<360 || tifis.y>150 && tifis.x<140 && tifis.y<210) {
+        	//borde del tablero
+         if(tifis.y>450 ||
+         	//obstaculo de la parte de abajo
+          	tifis.y>300 && tifis.x>110 && tifis.y<360 ||
+          	//Obstaculo del lado izquierdo
+           	tifis.y>150 && tifis.x<140 && tifis.y<210) 
+        {
             tifis.y -= tifis.velocidad;
         }    
     }
 
     if(codigo == teclas.LEFT){
         tifis.x -= tifis.velocidad;
-        if (tifis.x<-10 || tifis.y>150 && tifis.x<140 && tifis.y<210 || tifis.x>160 && tifis.y<210 && tifis.x<240) {
+        	//borde del tablero
+        if (tifis.x<-10 ||
+        	//Obstaculo del lado izquierdo
+         	tifis.y>150 && tifis.x<140 && tifis.y<210 ||
+          	//Obstaculo de arriba
+          	tifis.x>160 && tifis.y<210 && tifis.x<240) 
+        {
             tifis.x += tifis.velocidad;
         };
     }
 
     if(codigo == teclas.RIGHT){
         tifis.x += tifis.velocidad;
-        if(tifis.x>460 || tifis.y>300 && tifis.y<350 && tifis.x>110 || tifis.x>160 && tifis.y<210 && tifis.x<240) {
+        	//borde del tablero
+         if(tifis.x>460 ||
+         	//obstaculo de abajo
+        	tifis.y>300 && tifis.y<350 && tifis.x>110 ||
+        	//obstaculo de arriba
+        	tifis.x>160 && tifis.y<210 && tifis.x<240) 
+        {
             tifis.x -= tifis.velocidad;
         }
     }
