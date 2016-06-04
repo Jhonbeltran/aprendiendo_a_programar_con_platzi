@@ -13,6 +13,7 @@ var Mascota = function (n, v)
 	this.nombre = n;
 	this.voz = v;
 }
+//Con prototype nos metemos a la construccion interna del objeto
 Mascota.prototype.hablar = function ()
 {
 	alert(this.nombre + " dice: " + this.voz);
@@ -28,5 +29,12 @@ gato.hablar();
 </head>
 <body>
 	<h1>Perros y gatos</h1>
+	<h2>Recordemos:</h2>
+	<ul>La notacion <strong>Json</strong> 
+	es util cuando queremos escribir un objeto que no vamos a usar mucho
+	</ul>
+	<ul><strong>Prototype</strong> es usado para objetos de uso amplio</ul>
+
+	<h3>No olvidemos tener en cuenta el ambito de las variables</h3>
 </body>
 </html>
