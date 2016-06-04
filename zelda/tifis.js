@@ -7,7 +7,11 @@ var teclas =
 	UP: 38,
 	DOWN: 40,
 	LEFT: 37,
-	RIGHT: 39
+	RIGHT: 39,
+	W: 87,
+	S: 83,
+	A: 65,
+	D: 68
 };
 //Fondo es un objeto
 var fondo = {
@@ -36,7 +40,8 @@ var liz = {
 	lizURL: "liz.png",
 	lizOK: false,
 	x: 400,
-	y: 200
+	y: 200,
+	velocidad: 10
 };
 
 function inicio ()
@@ -84,6 +89,7 @@ function inicio ()
 
 function teclado(datos) {
     var codigo = datos.keyCode;
+    // alert(codigo);
     if(codigo == teclas.UP){
         tifis.y -= tifis.velocidad;
         	//borde del tablero
@@ -138,6 +144,62 @@ function teclado(datos) {
         }
     }
 
+
+    //PARTE DE LIZ
+
+    if(codigo == teclas.W){
+        liz.y -= liz.velocidad;
+        	//borde del tablero
+        if (liz.y<0||
+        	//obstaculo de la parte de abajo
+         	liz.y>300 && liz.x>110 && liz.y<350 ||
+         	//Obstaculo del lado izquierdo
+          	liz.y>150 && liz.x<140 && liz.y<210 ||
+          	//Obstaculo de arriba
+           	liz.y<210 && liz.x>160 && liz.x<240)
+        {
+            liz.y += liz.velocidad;
+        };
+    }
+
+    if(codigo == teclas.S){
+        liz.y += liz.velocidad;
+        	//borde del tablero
+         if(liz.y>450 ||
+         	//obstaculo de la parte de abajo
+          	liz.y>300 && liz.x>110 && liz.y<360 ||
+          	//Obstaculo del lado izquierdo
+           	liz.y>150 && liz.x<140 && liz.y<210) 
+        {
+            liz.y -= liz.velocidad;
+        }    
+    }
+
+    if(codigo == teclas.A){
+        liz.x -= liz.velocidad;
+        	//borde del tablero
+        if (liz.x<-10 ||
+        	//Obstaculo del lado izquierdo
+         	liz.y>150 && liz.x<140 && liz.y<210 ||
+          	//Obstaculo de arriba
+          	liz.x>160 && liz.y<210 && liz.x<240) 
+        {
+            liz.x += liz.velocidad;
+        };
+    }
+
+    if(codigo == teclas.D){
+        liz.x += liz.velocidad;
+        	//borde del tablero
+         if(liz.x>460 ||
+         	//obstaculo de abajo
+        	liz.y>300 && liz.y<350 && liz.x>110 ||
+        	//obstaculo de arriba
+        	liz.x>160 && liz.y<210 && liz.x<240) 
+        {
+            liz.x -= liz.velocidad;
+        }
+    }
     direccion = codigo;
     dibujar();
 }
