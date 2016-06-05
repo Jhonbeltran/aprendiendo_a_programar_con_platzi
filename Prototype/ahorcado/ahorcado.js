@@ -1,8 +1,9 @@
 //Elijan de un array de palabras aleatorio
+// variables globales
 var palabra = "Accesibilidad";
 var hombre, l, espacio;
 
-//Declaración de la clase Ahorcado
+//Declaración de la clase Ahorcado (recibe como parametro contexto)
 var Ahorcado = function (con)
 {
 	//this es las variables locales de la clase, accesibles en toda la clase
@@ -12,7 +13,7 @@ var Ahorcado = function (con)
 	this.maximo = 5;
 	this.intentos = 0;
 	this.vivo = true;
-
+	//Luego de la declaracion lo primero que hacemos es dibujar
 	this.dibujar();
 }
 Ahorcado.prototype.dibujar = function ()
@@ -25,8 +26,10 @@ Ahorcado.prototype.dibujar = function ()
 	dibujo.lineTo(150,50);
 	dibujo.lineTo(400,50);
 	dibujo.lineTo(400,350);
+	//Para hacer lineas mas anchas(en pixeles)
 	dibujo.lineWidth = 15;
-	dibujo.strokeStyle = "#000";
+	dibujo.strokeStyle = "peru";
+	//Si, peru es un maldito color!
 	dibujo.stroke();
 	dibujo.closePath();
 
@@ -39,7 +42,7 @@ Ahorcado.prototype.dibujar = function ()
 		dibujo.lineWidth = 5;
 		dibujo.stroke();
 		dibujo.closePath();
-
+		//La cantidad de intentos aumenta con la cantidad de veces que llamamos trazar()
 		if(this.intentos > 1)
 		{
 			// intentos = 2 --> torso
@@ -54,6 +57,8 @@ Ahorcado.prototype.dibujar = function ()
 			if(this.intentos > 2)
 			{
 				// intentos = 3 --> brazos
+				//Para dibujar brazos y piernas hacemos picos ^
+
 				dibujo.beginPath();
 				dibujo.moveTo(120,220);
 				dibujo.lineTo(150,180);
@@ -103,25 +108,33 @@ Ahorcado.prototype.dibujar = function ()
 
 	}
 }
+//Trazar le va a decir a la funcion ¡hey, agregue un intento nuevo! 
+//Y vuelvamelo a dibujar
 Ahorcado.prototype.trazar = function ()
 {
+	//El operador ++ suma uno
 	this.intentos++;
+	//Por defecto arrancamos en this.vivo = true
 	if(this.intentos >= this.maximo)
 	{
+		// Acá nos morimos muertos de la muerte
 		this.vivo = false;
 		alert("¡Estás muerto!");
 	}
 	this.dibujar();
 }
 
+//Acá esta la funcion iniciar!
 function iniciar () 
 {
 	l = document.getElementById("letra");
 	var b = document.getElementById("boton");
-	var inaho = document.getElementById("ectopollo");
-	inaho.width = 500;
-	inaho.height = 400;
-	var contexto = inaho.getContext("2d");
+	var canvas = document.getElementById("canvas");
+	//podemos darle un ancho y un alto a la etiqueta de canvas desde js
+	canvas.width = 500;
+	canvas.height = 400;
+	var contexto = canvas.getContext("2d");
+	//Al poner contexto como parametro ya lo puedo usar dentro de la clase Ahorcado
 	hombre = new Ahorcado(contexto);
 
 	//Convierte a mayúscula un texto
