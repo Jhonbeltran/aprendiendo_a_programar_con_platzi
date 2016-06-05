@@ -1,6 +1,6 @@
 //Elijan de un array de palabras aleatorio
 // variables globales
-var palabra = "Accesibilidad";
+var palabra = "Guardia";
 var hombre, l, espacio;
 
 //Declaración de la clase Ahorcado (recibe como parametro contexto)
@@ -16,90 +16,152 @@ var Ahorcado = function (con)
 	//Luego de la declaracion lo primero que hacemos es dibujar
 	this.dibujar();
 }
+
+var fondo = {
+	imagenURL: "poste.png",
+	imagenOK: false
+};
+
+function confirmarFondo ()
+{
+	
+	fondo.imagenOK = true;
+	dibujar();
+}
+var cabeza = {
+	cabezaURL: "cabeza.png",
+	cabezaOK: false,
+	x: 70,
+	y: 167
+};
+function confirmarCabeza ()
+{
+	
+	cabeza.cabezaOK = true;
+	dibujar();
+}
+
+var cuerpo = {
+	cuerpoURL: "cuerpo.png",
+	cuerpoOK: false,
+	x: 30,
+	y: 254
+};
+function confirmarCuerpo ()
+{
+	
+	cuerpo.cuerpoOK = true;
+	dibujar();
+}
+
+var brazos = {
+	brazosURL: "brazos.png",
+	brazosOK: false,
+	x: 30,
+	y: 250
+};
+function confirmarBrazos ()
+{
+	
+	brazos.brazosOK = true;
+	dibujar();
+}
+
+var pies = {
+	piesURL: "pies.png",
+	piesOK: false,
+	x: 40,
+	y: 450
+};
+function confirmarPies ()
+{
+	
+	pies.piesOK = true;
+	dibujar();
+}
+
+var muerto = {
+	muertoURL: "muerto.png",
+	muertoOK: false,
+	x: 55,
+	y: 167
+};
+function confirmarMuerto ()
+{
+	
+	muerto.muertoOK = true;
+	dibujar();
+}
+
+function dibujar()
+{
+	var canvas = document.getElementById("canvas");
+	tablero = canvas.getContext("2d");
+	//Capa 1: Fondo
+	if(fondo.imagenOK == true)
+	{
+		tablero.drawImage(fondo.imagen, 0, 0);
+	}
+	if(cabeza.cabezaOK)
+	{
+		tablero.drawImage(cabeza.cabeza, cabeza.x, cabeza.y);
+	}
+	if(cuerpo.cuerpoOK)
+	{
+		tablero.drawImage(cuerpo.cuerpo, cuerpo.x, cuerpo.y);
+	}
+	if(brazos.brazosOK)
+	{
+		tablero.drawImage(brazos.brazos, brazos.x, brazos.y);
+	}
+	if(pies.piesOK)
+	{
+		tablero.drawImage(pies.pies, pies.x, pies.y);
+	}
+	if(muerto.muertoOK)
+	{
+		tablero.drawImage(muerto.muerto, muerto.x, muerto.y);
+	}
+}
+
 Ahorcado.prototype.dibujar = function ()
 {
 	var dibujo = this.contexto;
 
-	//Dibujando el poste
-	dibujo.beginPath();
-	dibujo.moveTo(150,100);
-	dibujo.lineTo(150,50);
-	dibujo.lineTo(400,50);
-	dibujo.lineTo(400,350);
-	//Para hacer lineas mas anchas(en pixeles)
-	dibujo.lineWidth = 15;
-	dibujo.strokeStyle = "peru";
-	//Si, peru es un maldito color!
-	dibujo.stroke();
-	dibujo.closePath();
+	fondo.imagen = new Image();
+	fondo.imagen.src = fondo.imagenURL;
+	fondo.imagen.onload = confirmarFondo;
 
 	if(this.intentos > 0)
 	{
-		// intentos = 1 --> rostro
-		dibujo.beginPath();
-		dibujo.arc(150, 140, 40, 0, Math.PI * 2, false);
-		dibujo.strokeStyle = "red";
-		dibujo.lineWidth = 5;
-		dibujo.stroke();
-		dibujo.closePath();
-		//La cantidad de intentos aumenta con la cantidad de veces que llamamos trazar()
+		
+		cabeza.cabeza = new Image();
+		cabeza.cabeza.src = cabeza.cabezaURL;
+		cabeza.cabeza.onload = confirmarCabeza;
+
 		if(this.intentos > 1)
 		{
-			// intentos = 2 --> torso
-			dibujo.beginPath();
-			dibujo.moveTo(150,180);
-			dibujo.lineTo(150,250);
-			dibujo.strokeStyle = "red";
-			dibujo.lineWidth = 5;
-			dibujo.stroke();
-			dibujo.closePath();
+			cuerpo.cuerpo = new Image();
+			cuerpo.cuerpo.src = cuerpo.cuerpoURL;
+			cuerpo.cuerpo.onload = confirmarCuerpo;
 
 			if(this.intentos > 2)
 			{
-				// intentos = 3 --> brazos
-				//Para dibujar brazos y piernas hacemos picos ^
-
-				dibujo.beginPath();
-				dibujo.moveTo(120,220);
-				dibujo.lineTo(150,180);
-				dibujo.lineTo(180,220);
-				dibujo.strokeStyle = "red";
-				dibujo.lineWidth = 5;
-				dibujo.stroke();
-				dibujo.closePath();
+				brazos.brazos = new Image();
+				brazos.brazos.src = brazos.brazosURL;
+				brazos.brazos.onload = confirmarBrazos;
 
 				if(this.intentos > 3)
 				{
-					// intentos = 4 --> piernas
-					dibujo.beginPath();
-					dibujo.moveTo(120,290);
-					dibujo.lineTo(150,250);
-					dibujo.lineTo(180,290);
-					dibujo.strokeStyle = "red";
-					dibujo.lineWidth = 5;
-					dibujo.stroke();
-					dibujo.closePath();
+					pies.pies = new Image();
+					pies.pies.src = pies.piesURL;
+					pies.pies.onload = confirmarPies;
 
 					if(this.intentos > 4)
 					{
-						// intentos = 5 --> ojos muertos
-						dibujo.beginPath();
-						//Ojo izquierdo
-						dibujo.moveTo(125,120);
-						dibujo.lineTo(145,145);
-						dibujo.moveTo(145,120);
-						dibujo.lineTo(125,145);
-
-						//Ojo derecho
-						dibujo.moveTo(155,120);
-						dibujo.lineTo(175,145);
-						dibujo.moveTo(175,120);
-						dibujo.lineTo(155,145);
-
-						dibujo.strokeStyle = "blue";
-						dibujo.lineWidth = 5;
-						dibujo.stroke();
-						dibujo.closePath();
+						muerto.muerto = new Image();
+						muerto.muerto.src = muerto.muertoURL;
+						muerto.muerto.onload = confirmarMuerto;
 					}
 				}
 			}
@@ -132,7 +194,7 @@ function iniciar ()
 	var canvas = document.getElementById("canvas");
 	//podemos darle un ancho y un alto a la etiqueta de canvas desde js
 	canvas.width = 500;
-	canvas.height = 400;
+	canvas.height = 502;
 	var contexto = canvas.getContext("2d");
 	//Al poner contexto como parametro ya lo puedo usar dentro de la clase Ahorcado
 	hombre = new Ahorcado(contexto);
