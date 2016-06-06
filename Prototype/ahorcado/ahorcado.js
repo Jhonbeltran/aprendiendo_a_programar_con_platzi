@@ -1,5 +1,6 @@
 //Elijan de un array de palabras aleatorio
 // variables globales
+//palabra es un objeto de tipo String
 var palabra = "Accesibilidad";
 var hombre, l, espacio;
 
@@ -139,6 +140,7 @@ function iniciar ()
 
 	//Convierte a mayúscula un texto
 	palabra = palabra.toUpperCase();
+	//Para minusculas es .toLowerCase
 
 	//Declaro un array con n espacios de acuerdo al largo de la palabra
 	espacio = new Array(palabra.length);
