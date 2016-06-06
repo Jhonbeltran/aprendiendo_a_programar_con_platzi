@@ -21,28 +21,28 @@ var fondo = {
 	imagenOK: false
 };
 
-var tifis = {
-	x: 100,
-	y: 100,
-	frenteURL: "diana-frente.png",
-	//Variable booleana(false=la imagen no ha cargado, true=la imagen ya cargó)
-	frenteOK: false,
-	atrasURL: "diana-atras.png",
-	atrasOK: false,
-	derURL: "diana-der.png",
-	derOK: false,
-	izqURL: "diana-izq.png",
-	izqOK: false,
-	velocidad: 10
-};
+var Personaje = function(x, y, frenteURL, frenteOK, atrasURL, atrasOK, derURL, derOK, izqURL, izqOK, velocidad)
+{
+	this.x=x;
+	this.y=y;
+	this.frenteURL=frenteURL;
+	this.frenteOK=frenteOK;
+	this.atrasURL=atrasURL;
+	this.derURL=derURL;
+	this.derOK=derOK;
+	this.izqURL=izqURL;
+	this.izqOK=izqOK;
+	this.velocidad=velocidad;
+}
 
-var liz = {
-	lizURL: "liz.png",
-	lizOK: false,
-	x: 400,
-	y: 200,
-	velocidad: 10
-};
+var tifis = new Personaje(
+
+100,100, "diana-frente.png", false, "diana-atras.png", false, "diana-der.png", false, "diana-izq.png", false,10
+
+);
+
+var liz = new Personaje(400, 200, "liz.png", false, null, null, null, null, null, null, 10);
+
 
 function inicio ()
 {
@@ -79,7 +79,7 @@ function inicio ()
 	tifis.der.onload = confirmarDer;
 
 	liz.lizy = new Image();
-	liz.lizy.src = liz.lizURL;
+	liz.lizy.src = liz.frenteURL;
 	liz.lizy.onload = confirmarLiz;
  
  	//Para detectar el teclado
