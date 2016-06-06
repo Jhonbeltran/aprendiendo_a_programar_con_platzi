@@ -1,7 +1,15 @@
 //Elijan de un array de palabras aleatorio
 // variables globales
 //palabra es un objeto de tipo String
-var palabra = "Accesibilidad";
+function seleccionPalabra(minimo, maximo)
+{
+	var numero = Math.floor( Math.random() * (maximo - minimo + 1) + minimo );
+	return numero;
+}
+
+var opciones = ["Ver", "Clan", "Gatos", "Tomate"]
+var opcionMaquina = seleccionPalabra(0,3);
+var palabra = opciones[opcionMaquina];
 var hombre, l, espacio;
 
 //Declaración de la clase Ahorcado (recibe como parametro contexto)
@@ -143,6 +151,7 @@ function iniciar ()
 	//Para minusculas es .toLowerCase
 
 	//Declaro un array con n espacios de acuerdo al largo de la palabra
+	//Length es una variable no una funcion
 	espacio = new Array(palabra.length);
 	
 	//Agregamos una función que se dispare al dar click al botón
