@@ -6,7 +6,7 @@ function inicio()
     dibujo = document.getElementById("dibujito");
     lienzo = dibujo.getContext("2d");
     
-    /*dibujarGrilla(lienzo);*/
+    /*dibujarGrilla();*/
     b.addEventListener("click", dibujarGrilla);
 
     lienzo.beginPath();
@@ -19,36 +19,69 @@ function inicio()
     lienzo.closePath();
    
    
+   
 
 }
 function dibujarGrilla(){
-    var pony = lienzo;
     var rayas = t.value;
-    var ancho = 300, alto = 300;
-    var linea;
-    var anchoLinea = ancho / rayas;
-    var limiteX = ancho / anchoLinea;
-    var limiteY = alto / anchoLinea;
-    for(linea = -10; linea <= limiteX ; linea ++ )
+    var maximo = 300;
+    var linea, punto;
+    var anchoLinea = maximo / rayas;
+    var limite = maximo / anchoLinea;
+
+    for(linea = 0; linea <= limite; linea++)
     {
-        punto = (linea * anchoLinea + ancho);
-        puntoB = (linea * anchoLinea);
-        pony.beginPath();
-        pony.strokeStyle = "#AAA";
-        pony.moveTo(puntoB, 0);
-        pony.lineTo(punto, 300);
-        pony.stroke();
-        pony.closePath;
+        punto = linea * anchoLinea;
+        lienzo.beginPath();
+        lienzo.strokeStyle = "#AAA";
+        lienzo.moveTo(punto, 0);
+        lienzo.lineTo(0, punto);
+        lienzo.stroke();
+        lienzo.closePath;
         
     }
-    for (linea = -10; linea <= limiteY ; linea ++) {
-        punto= (linea * anchoLinea + ancho);
-        puntoB = (linea * anchoLinea);
-        pony.beginPath();
-        pony.strokeStyle = "#AAA";
-        pony.moveTo(0, punto);
-        pony.lineTo(300,puntoB);
-        pony.stroke();
-        pony.closePath;
+    for(linea = 0; linea <= limite; linea++)
+    {
+        punto = linea * anchoLinea;
+        lienzo.beginPath();
+        lienzo.strokeStyle = "#AAA";
+        lienzo.moveTo(maximo, punto);
+        lienzo.lineTo(punto, maximo);
+        lienzo.stroke();
+        lienzo.closePath();
     }
+        
+    for(linea = 0; linea <= limite; linea++)
+    {
+        punto = linea * anchoLinea;
+        lienzo.beginPath();
+        lienzo.strokeStyle = "#AAA";
+        lienzo.moveTo(0, (maximo-punto));
+        lienzo.lineTo(punto, maximo);
+        lienzo.stroke();
+        lienzo.closePath();
+    }
+
+    for(linea = 0; linea <= limite; linea++)
+    {
+        punto = linea * anchoLinea;
+        lienzo.beginPath();
+        lienzo.strokeStyle = "#AAA";
+        lienzo.moveTo(0, (maximo-punto));
+        lienzo.lineTo(punto, maximo);
+        lienzo.stroke();
+        lienzo.closePath();
+    }
+
+    for(linea = 0; linea <= limite; linea++)
+    {
+        punto = linea * anchoLinea;
+        lienzo.beginPath();
+        lienzo.strokeStyle = "#AAA";
+        lienzo.moveTo(maximo, (maximo-punto));
+        lienzo.lineTo(punto, 0);
+        lienzo.stroke();
+        lienzo.closePath();
+    }
+
 }

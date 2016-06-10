@@ -103,7 +103,7 @@ function dibujarImagen()
 		tablero.drawImage(muerto.muerto, muerto.posicionX, muerto.posicionY);
 	}
 }
-
+//Esto es una funcion estatica
 Ahorcado.prototype.dibujar = function ()
 {
 	/*var dibujo = this.contexto;*/
