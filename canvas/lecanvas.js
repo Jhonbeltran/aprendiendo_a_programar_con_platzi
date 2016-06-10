@@ -10,10 +10,10 @@ function inicio()
     b.addEventListener("click", dibujarGrilla);
 
     lienzo.beginPath();
-    lienzo.strokeStyle = "#009688"
+    lienzo.strokeStyle = "#607D8B"
     lienzo.arc(150,150,100,(Math.PI * 2), false);
     //Para colorear y llenar el circulo
-    lienzo.fillStyle = "#03A9F4"
+    lienzo.fillStyle = "#607D8B"
     lienzo.fill();
     lienzo.stroke();
     lienzo.closePath();
@@ -33,25 +33,25 @@ function dibujarGrilla(){
     {
         punto = linea * anchoLinea;
         lienzo.beginPath();
-        lienzo.strokeStyle = "#AAA";
+        lienzo.strokeStyle = "#E64A19";
         lienzo.moveTo(punto, 0);
         lienzo.lineTo(0, punto);
         lienzo.stroke();
         lienzo.closePath;
         lienzo.beginPath();
-        lienzo.strokeStyle = "#AAA";
+        lienzo.strokeStyle = "#212121";
         lienzo.moveTo(maximo, punto);
         lienzo.lineTo(punto, maximo);
         lienzo.stroke();
         lienzo.closePath();
         lienzo.beginPath();
-        lienzo.strokeStyle = "#AAA";
+        lienzo.strokeStyle = "#FF9800";
         lienzo.moveTo(0, (maximo-punto));
         lienzo.lineTo(punto, maximo);
         lienzo.stroke();
         lienzo.closePath();
         lienzo.beginPath();
-        lienzo.strokeStyle = "#AAA";
+        lienzo.strokeStyle = "#212121";
         lienzo.moveTo(maximo, (maximo-punto));
         lienzo.lineTo(punto, 0);
         lienzo.stroke();
