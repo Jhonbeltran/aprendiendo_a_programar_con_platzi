@@ -38,33 +38,18 @@ function dibujarGrilla(){
         lienzo.lineTo(0, punto);
         lienzo.stroke();
         lienzo.closePath;
-        
-    }
-    for(linea = 0; linea <= limite; linea++)
-    {
-        punto = linea * anchoLinea;
         lienzo.beginPath();
         lienzo.strokeStyle = "#AAA";
         lienzo.moveTo(maximo, punto);
         lienzo.lineTo(punto, maximo);
         lienzo.stroke();
         lienzo.closePath();
-    }
-        
-    for(linea = 0; linea <= limite; linea++)
-    {
-        punto = linea * anchoLinea;
         lienzo.beginPath();
         lienzo.strokeStyle = "#AAA";
         lienzo.moveTo(0, (maximo-punto));
         lienzo.lineTo(punto, maximo);
         lienzo.stroke();
         lienzo.closePath();
-    }
-
-    for(linea = 0; linea <= limite; linea++)
-    {
-        punto = linea * anchoLinea;
         lienzo.beginPath();
         lienzo.strokeStyle = "#AAA";
         lienzo.moveTo(maximo, (maximo-punto));
