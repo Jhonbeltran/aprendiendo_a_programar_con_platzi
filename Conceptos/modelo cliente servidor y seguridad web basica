@@ -1,0 +1,7 @@
+modelo cliente servidor y seguridad web basica
+
+Internet = interconexion de red, tu nevera puede estar ahí
+Web = La web es lo que corre en el navegador (requiere de puertos)
+
+Recuerda nunca conectarte a la base de datos desde el Frontend
+por seguridad debes usar si o si tecnologias de Backend

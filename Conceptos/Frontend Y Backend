@@ -1,0 +1,37 @@
+Frontend (navegador)
+Usa lenguajes que interactuan con el usuario
+	
+Backend (servidor)
+Usa lenguajes que se conectan con las bases de datos
+-Login, datos unicos, chat, sistemas de archivos<<<<<Todo en una base de datos
+Las web normalmente usa el 80;
+
+todo eso hace un stack! Una pila de cosas para que todo funcione
+
+Lamp (linux, apache(es un servidor http), mysql, php) ._.
+Mean (MongoDB, AngularJS, Express, nodeJS)
+
+AngularJS = Esto es un framework = 
+Se conecta al server, trae datos en json, los estructura
+
+Framework = libreria de codigo
+
+nodeJS = sirve para sockets, para email pero necesita un complemento
+del lado del servidor para escuchar del puerto 80, el complemento se llama express (que es un server chiquitico de http del puerto 80)
+
+El stack que usamos para "volar" el drone es:
+
+Express, nodeJS y JS
+
+nodeJS va a correr del lado del servidor como un servidor local en el pc
+
+JS para el navegador
+
+Express 
+
+metodos para conectarnos a un servidor{
+Get:,
+post:,
+ajax:,
+sockets:
+}

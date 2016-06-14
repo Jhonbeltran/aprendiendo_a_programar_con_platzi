@@ -1,0 +1,25 @@
+Esto es get: una forma de pasar variables a travez de la url
+no se pueden agregar mas de 1024 caracteres
+							____							
+https://www.google.com/search?client=opera&q=empanadas+con+aji&sourceid=opera&ie=UTF-8&oe=UTF-8
+
+Esto es post: 
+
+https://platzi.com/clases/programacion-basica/concepto/clase-8-2/ejemplo-de-login-normal-con-post-y-get/material/
+
+
+Si pongo nombre y contraseña correcta y lo enviamos por post
+usando la etiqueta form (en post se va por debajo en metataks o headers de la pagina web)
+ellos saben que navegador usamos, que OS usando los headers de la 
+peticion HTTP (en los headers van las variables "escondidas")
+
+el chat por ejemplo usa la tecnica de sockets ._. para no tener que recargar la pagina, pero la mas comun es AJAX (xml y js asincrono)
+pero ya no se usa xml ahora se usa json :)
+
+lleno datos en una pagina, envio los formularios empaquetados en post
+sin recargar la pagina usando js, js envia los datos a una pagina en el server y el server reenvia un texto en forma de json (sin recargar)
+
+sockets = conexion siempre viva ._. sin necesidad de preguntar a cada rato como lo hacemos con ajax
+
+en juegos en tiempo real como cod se usan sockets :)
+

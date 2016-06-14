@@ -23,7 +23,7 @@ function inicio()
 
 }
 function dibujarGrilla(){
-    var rayas = t.value;
+    var rayas = (t.value);
     var maximo = 300;
     var linea, punto;
     var anchoLinea = maximo / rayas;
